@@ -4,8 +4,9 @@ LABEL maintainer="UC San Diego ITS/ETS <ets-consult@ucsd.edu>"
 
 USER root
 
-RUN conda install python=3.7 tensorflow-gpu=2.1.0 pickle && \
-    pip install torchaudio && \
+RUN conda install python=3.7 tensorflow-gpu=2.1.0 && \
+    conda install -c anaconda cloudpickle && \
+    pip install torchaudio pickle-mixin && \
     conda clean -afy && fix-permissions $CONDA_DIR
 
 ##conda install pip
