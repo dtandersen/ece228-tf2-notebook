@@ -9,7 +9,7 @@ SHELL ["conda", "run", "-n", "py37-tf2", "/bin/bash", "-c"]
 
 #    /bin/bash -c "source /usr/local/bin/virtualenvwrapper.sh" && \
 #    conda activate py37-tf2 && \
-RUN  python -m ipykernel install && \
+RUN  python -m ipykernel install --name py37-tf2 && \
     conda clean -afy && fix-permissions $CONDA_DIR
 
 #RUN conda install python=3.7 tensorflow-gpu=2.1.0 && \
