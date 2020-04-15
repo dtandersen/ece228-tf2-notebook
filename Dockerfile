@@ -4,7 +4,7 @@ LABEL maintainer="UC San Diego ITS/ETS <ets-consult@ucsd.edu>"
 
 USER root
 
-RUN conda create --yes --quiet -n py37-tf2 python=3.7 tensorflow-gpu=2.1.0 pip numpy matplotlib ipykernel
+RUN conda create --yes --quiet -n py37-tf2 python=3.7 tensorflow-gpu=2.1.0 pip numpy matplotlib ipykernel scikit-learn=0.22.2 jupyter notebook
 SHELL ["conda", "run", "-n", "py37-tf2", "/bin/bash", "-c"]
 
 RUN conda install -c anaconda cloudpickle && \
