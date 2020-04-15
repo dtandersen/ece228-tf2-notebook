@@ -17,6 +17,9 @@ RUN  python -m ipykernel install && \
 #    pip install torchaudio pickle-mixin && \
 #     conda clean -afy && fix-permissions $CONDA_DIR
 
+# reset shell
+SHELL ["/bin/sh", "-c"]
+
 ##conda install pip
 ##conda install numpy
 #conda install jupyter notebook
