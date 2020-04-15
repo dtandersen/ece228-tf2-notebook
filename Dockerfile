@@ -4,9 +4,12 @@ LABEL maintainer="UC San Diego ITS/ETS <ets-consult@ucsd.edu>"
 
 USER root
 
-RUN conda create -n py37-tf2 python=3.7 tensorflow-gpu=2.1.0 ipykernel && \
-    source activate py37-tf2 && \
-    python -m ipykernel install && \
+RUN conda create --yes --quiet -n py37-tf2 python=3.7 tensorflow-gpu=2.1.0 ipykernel
+SHELL ["conda", "run", "-n", "py37-tf2", "/bin/bash", "-c"]
+
+#    /bin/bash -c "source /usr/local/bin/virtualenvwrapper.sh" && \
+#    conda activate py37-tf2 && \
+RUN  python -m ipykernel install && \
     conda clean -afy && fix-permissions $CONDA_DIR
 
 #RUN conda install python=3.7 tensorflow-gpu=2.1.0 && \
